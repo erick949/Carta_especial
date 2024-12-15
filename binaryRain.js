@@ -36,6 +36,7 @@ function drawBinaryRain() {
     }
 }
 
+
 // Animación continua
 setInterval(drawBinaryRain, 50);
 
