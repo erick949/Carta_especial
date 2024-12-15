@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Cumpleaños</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #8889ad, #6867bb, #203294);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 30px;
+            max-width: 500px;
+            position: relative;
+            z-index: 1; /* Tarjeta al frente */
+        }
+
+        /* Texto animado */
+        .message {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.4em;
+            line-height: 1.5;
+            color: #FF6F61;
+            text-shadow: 1px 1px 2px #FFABAB;
+        }
+
+        .line {
+            opacity: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: fade-in 0.5s forwards, typing 2s steps(40, end);
+            border-right: 2px solid transparent;
+        }
+
+        .line.active {
+            border-right: 2px solid orange;
+            animation: fade-in 0.5s forwards, typing 2s steps(40, end), blink-caret 0.5s step-end infinite;
+        }
+
+        .line.finished {
+            border-right: none; /* Oculta el cursor al finalizar */
+        }
+
+        .line:nth-child(1) { animation-delay: 0s; }
+        .line:nth-child(2) { animation-delay: 2.5s; }
+        .line:nth-child(3) { animation-delay: 5s; }
+        .line:nth-child(4) { animation-delay: 7.5s; }
+        .line:nth-child(5) { animation-delay: 10s; }
+        .line:nth-child(6) { animation-delay: 12.5s; }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0 }
+            to { opacity: 1 }
+        }
+
+        @keyframes blink-caret {
+            50% { border-color: transparent; }
+        }
+
+        /* Decoración animada */
+        .decorations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Detrás de la tarjeta */
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background-color: rgba(255, 99, 71, 0.8);
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            background-color: #617eff;
+            animation-duration: 5s;
+        }
+
+        .balloon:nth-child(2) {
+            top: 20%;
+            left: 80%;
+            background-color: #FFC3A0;
+            animation-duration: 6s;
+        }
+
+        .balloon:nth-child(3) {
+            top: 50%;
+            left: 50%;
+            background-color: #FFD166;
+            animation-duration: 7s;
+        }
+
+        .balloon:nth-child(4) {
+            top: 70%;
+            left: 20%;
+            background-color: #9EE493;
+            animation-duration: 5.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorations">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <div class="card">
+        <div class="message">
+            <div class="line active">¡Feliz cumpleaños a mi amiga especial!</div>
+            <div class="line">Que este día esté lleno de alegría,</div>
+            <div class="line">con momentos inolvidables y muchas sonrisas.</div>
+            <div class="line">Te mereces todo lo bonito del mundo,</div>
+            <div class="line">porque llenas la vida de los demás de luz.</div>
+            <div class="line">¡Gracias por ser una persona tan increíble!</div>
+        </div>
+    </div>
+
+    <script>
+        // Script para activar las líneas progresivamente
+        const lines = document.querySelectorAll('.line');
+        lines.forEach((line, index) => {
+            line.addEventListener('animationend', (e) => {
+                if (e.animationName === 'typing') {
+                    line.classList.remove('active');
+                    line.classList.add('finished');
+                    if (index + 1 < lines.length) {
+                        lines[index + 1].classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
