@@ -66,3 +66,54 @@ footer {
     color: #e2d0d0;
     font-size: 0.9rem;
 }
+.hidden {
+    display: none;
+}
+
+.lyrics {
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Colores para cada línea */
+.line-red {
+    color: red;
+    font-weight: bold;
+}
+
+.line-blue {
+    color: blue;
+    font-weight: bold;
+}
+
+.line-green {
+    color: green;
+    font-weight: bold;
+}
+
+.line-purple {
+    color: purple;
+    font-weight: bold;
+}
+
+.line-orange {
+    color: orange;
+    font-weight: bold;
+}
+
+.line-pink {
+    color: deeppink;
+    font-weight: bold;
+}
+
+.line-yellow {
+    color: gold;
+    font-weight: bold;
+}
+
+.line-cyan {
+    color: cyan;
+    font-weight: bold;
+}
