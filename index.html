@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Fondo animado -->
+    <canvas id="binaryRain"></canvas>
+
+    <!-- Contenedor del mensaje -->
     <div class="container">
         <h1 class="title">¡Feliz Cumpleaños!</h1>
         <p class="message">Hola <span class="name">Itzel</span>,</p>
         <p class="message">Quiero desearte un cumpleaños lleno de alegría, creatividad y éxito. Esta carta es solo una pequeña muestra de lo especial que eres.</p>
         
-        <button class="reveal-button" onclick="revealSecret()">Haz clic para descubrir algo especial</button>
+        <button class="reveal-button" onclick="revealSecret()">Mira, prepare esto...</button>
         
         <div id="secret-message" class="hidden">
             <p>Gracias por ser una compañera increíble en esta aventura llamada universidad. 🎉</p>
-            <p>Espero que este pequeño gesto digital te haga sonreír. ¡Eres genial!</p>
-            <a href="https://example.com" class="surprise-link">¡Haz clic aquí para otra sorpresa! 🎁</a>
+            <p>Espero que este pequeño gesto  te haga sonreír. ¡Eres genial!</p>
+            <a href="https://example.com" class="surprise-link">¡Hay algo mas? 🎁</a>
         </div>
 
         <footer>
@@ -26,6 +30,8 @@
         </footer>
     </div>
 
+    <!-- Script para lluvia binaria -->
+    <script src="binaryRain.js"></script>
     <script>
         function revealSecret() {
             const secretMessage = document.getElementById('secret-message');
