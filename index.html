@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Interactiva</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">¡Feliz Cumpleaños!</h1>
+        <p class="message">Hola <span class="name">Itzel</span>,</p>
+        <p class="message">Quiero desearte un cumpleaños lleno de alegría, creatividad y éxito. Esta carta es solo una pequeña muestra de lo especial que eres.</p>
+        
+        <button class="reveal-button" onclick="revealSecret()">Haz clic para descubrir algo especial</button>
+        
+        <div id="secret-message" class="hidden">
+            <p>Gracias por ser una compañera increíble en esta aventura llamada universidad. 🎉</p>
+            <p>Espero que este pequeño gesto digital te haga sonreír. ¡Eres genial!</p>
+            <a href="https://example.com" class="surprise-link">¡Haz clic aquí para otra sorpresa! 🎁</a>
+        </div>
+
+        <footer>
+            <p>Con cariño,</p>
+            <p>Tu amigo especial ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        function revealSecret() {
+            const secretMessage = document.getElementById('secret-message');
+            secretMessage.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
