@@ -10,12 +10,22 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to bottom, #8889ad, #6867bb, #203294);
+            background: radial-gradient(circle, #000000, #0d0d2b);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            flex-direction: column;
+        }
+
+        .title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px #ff6f61, 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .card {
@@ -87,56 +97,34 @@
             z-index: -1; /* Detrás de la tarjeta */
         }
 
-        .balloon {
+        .star {
             position: absolute;
-            width: 60px;
-            height: 80px;
-            background-color: rgba(255, 99, 71, 0.8);
+            background-color: #fff;
             border-radius: 50%;
-            animation: float 4s ease-in-out infinite;
+            animation: twinkle 3s infinite ease-in-out, float 10s linear infinite;
         }
 
-        .balloon:nth-child(1) {
-            top: 10%;
-            left: 10%;
-            background-color: #617eff;
-            animation-duration: 5s;
-        }
-
-        .balloon:nth-child(2) {
-            top: 20%;
-            left: 80%;
-            background-color: #FFC3A0;
-            animation-duration: 6s;
-        }
-
-        .balloon:nth-child(3) {
-            top: 50%;
-            left: 50%;
-            background-color: #FFD166;
-            animation-duration: 7s;
-        }
-
-        .balloon:nth-child(4) {
-            top: 70%;
-            left: 20%;
-            background-color: #9EE493;
-            animation-duration: 5.5s;
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="decorations">
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-    </div>
+    <div class="title">Feliz Cumpleaños</div>
+    <div class="decorations" id="decorations"></div>
 
     <div class="card">
         <div class="message">
@@ -163,6 +151,22 @@
                 }
             });
         });
+
+        // Generar estrellas en el fondo
+        const decorations = document.getElementById('decorations');
+        const starCount = 100; // Cantidad de estrellas
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            const size = Math.random() * 3 + 2; // Tamaño entre 2px y 5px
+            star.classList.add('star');
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            decorations.appendChild(star);
+        }
     </script>
 </body>
 </html>
