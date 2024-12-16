@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    
-
-
     <!-- Fondo animado -->
     <canvas id="binaryRain"></canvas>
 
@@ -52,70 +48,5 @@
     <!-- Script para lluvia binaria -->
     <script src="binaryRain.js"></script>
 
-    
-    <script>
-        const lyrics = [
-            // [Verso 1]
-            { time: 0, text: "Ella llora al cielo porque le aclara la mente", className: "line-red" },
-            { time: 5, text: "Se acuesta en la hierba y mira las constelaciones relajarse", className: "line-blue" },
-            { time: 10, text: "Los dibujos animados la hacen reír hasta que todas sus preocupaciones se disuelven", className: "line-green" },
-            { time: 15, text: "Las películas de terror asustan, pero ella es valiente a pesar de todo", className: "line-purple" },
-
-            // [Estribillo]
-            { time: 20, text: "Este día especial es todo para ti", className: "line-orange" },
-            { time: 25, text: "Cada estrella en el cielo brilla solo porque sí", className: "line-pink" },
-            { time: 30, text: "Ríe llora sueña sigue siendo así", className: "line-yellow" },
-            { time: 35, text: "Tu belleza ilumina que ni el miedo puede resistir", className: "line-cyan" },
-
-            // [Verso 2]
-            { time: 40, text: "Ella tiene un corazón que podría curar cualquier angustia", className: "line-red" },
-            { time: 45, text: "Con una sonrisa que eclipsa a todas las demás", className: "line-blue" },
-            { time: 50, text: "Cuando el mundo se siente pesado ella mira al azul", className: "line-green" },
-            { time: 55, text: "Recuéstate en esa hierba y deja que las estrellas te arrastren", className: "line-purple" },
-
-            // [Estribillo]
-            { time: 60, text: "Este día especial es todo para ti", className: "line-orange" },
-            { time: 65, text: "Cada estrella en el cielo brilla solo porque sí", className: "line-pink" },
-            { time: 70, text: "Ríe llora sueña sigue siendo así", className: "line-yellow" },
-            { time: 75, text: "Tu belleza ilumina que ni el miedo puede resistir", className: "line-cyan" },
-
-            // [Puente]
-            { time: 80, text: "En un mundo lleno de ruido eres la canción más dulce", className: "line-red" },
-            { time: 85, text: "Luchas tus propias batallas pero aún te mantienes fuerte", className: "line-blue" },
-            { time: 90, text: "Cada caricatura que trae consuelo a tus ojos", className: "line-green" },
-            { time: 95, text: "Muestra un corazón que es más valiente que los cielos más oscuros", className: "line-purple" },
-
-            // [Estribillo]
-            { time: 100, text: "Este día especial es todo para ti", className: "line-orange" },
-            { time: 105, text: "Cada estrella en el cielo brilla solo porque sí", className: "line-pink" },
-            { time: 110, text: "Ríe llora sueña sigue siendo así", className: "line-yellow" },
-            { time: 115, text: "Tu belleza ilumina que ni el miedo puede resistir", className: "line-cyan" }
-        ];
-
-
-        function revealSecret() {
-            const secretMessage = document.getElementById('secret-message');
-            secretMessage.classList.remove('hidden');
-            
-            // Reproducir el audio
-            const audio = document.getElementById('background-music');
-            audio.play();
-
-            // Mostrar letras dinámicamente
-            const lyricsContainer = document.getElementById('lyrics-container');
-            let currentLine = 0;
-
-            // Evento que verifica el tiempo del audio
-            audio.addEventListener('timeupdate', () => {
-                if (currentLine < lyrics.length && audio.currentTime >= lyrics[currentLine].time) {
-                    // Mostrar solo la línea actual con su color correspondiente
-                    const { text, className } = lyrics[currentLine];
-                    lyricsContainer.innerHTML = `<p class="${className}">${text}</p>`;
-                    currentLine++;
-                }
-            });
-        }
-
-    </script>   
 </body>
 </html>
