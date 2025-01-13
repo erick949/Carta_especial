@@ -34,7 +34,9 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
             padding: 30px;
-            max-width: 500px;
+            width: 90%; /* Toma el 90% del ancho en dispositivos pequeños */
+            max-width: 500px; /* Máximo ancho */
+            aspect-ratio: 4 / 3; /* Mantiene una proporción de 4:3 */
             position: relative;
             z-index: 1; /* Tarjeta al frente */
         }
@@ -128,7 +130,7 @@
 
     <div class="card">
         <div class="message">
-            <div class="line active">¡Feliz cumpleaños a mi amiga especial!</div>
+            <div class="line active">¡Feliz cumpleaños hermosa!</div>
             <div class="line">Que este día esté lleno de alegría,</div>
             <div class="line">con momentos inolvidables y muchas sonrisas.</div>
             <div class="line">Te mereces todo lo bonito del mundo,</div>
